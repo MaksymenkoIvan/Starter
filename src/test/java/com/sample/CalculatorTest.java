@@ -3,37 +3,36 @@ package com.sample;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class CalculatorTest
-{
+public class CalculatorTest {
 
     private Calculator calculator = new Calculator();
 
     @Test
     public void sum_withNegativInput() {
-        int res = calculator.sum(-3, -3);
+        int res = calculator.add(-3, -3);
         Assert.assertEquals(-6, res);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void sum_withBigValue() {
-        int res = calculator.sum(Integer.MAX_VALUE, 3);
+        int res = calculator.add(Integer.MAX_VALUE, 3);
         Assert.assertEquals(new IllegalArgumentException("Not allowed parameter"), res);
     }
 
     @Test
     public void sum_withZero() {
-        Assert.assertEquals(0, calculator.sum(-8, 8));
+        Assert.assertEquals(0, calculator.add(-8, 8));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void sum_withSmallValue() {
-        int res = calculator.sum(Integer.MIN_VALUE, -3);
+        int res = calculator.add(Integer.MIN_VALUE, -3);
         Assert.assertEquals(new IllegalArgumentException("Not allowed parameter"), res);
     }
 
     @Test
     public void sum_withRegularValue() {
-        int resultRegular = calculator.sum(7, 3);
+        int resultRegular = calculator.add(7, 3);
         Assert.assertEquals(10, resultRegular);
     }
 

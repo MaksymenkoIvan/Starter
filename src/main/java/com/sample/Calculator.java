@@ -1,20 +1,27 @@
 package com.sample;
 
-public class Calculator
-{
-    public static void main( String[] args ){
-        System.out.println(sum(9,6));
+public class Calculator {
+
+    public static void main(String[] args) {
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(add(5,6));
+        System.out.println(subtraction(6,5));
+        System.out.println(add(Integer.MAX_VALUE, 1));
     }
 
-    public static int sum(long a, long b){
-        if (a + b > Integer.MAX_VALUE | a + b < Integer.MIN_VALUE) {
+    public static int add(int a, int b){
+        long c = (long) a + (long) b;
+        if ((int)c != c) {
             throw new IllegalArgumentException("Not allowed parameter");
-        }else return (int) (a+b);
+        }
+        return (int) c;
     }
 
-    public static int subtraction(long a, long b){
-        if (a - b > Integer.MAX_VALUE | a - b < Integer.MIN_VALUE) {
+    public static int subtraction(int a, int b){
+        long c = (long) a - (long) b;
+        if ((int)c != c) {
             throw new IllegalArgumentException("Not allowed parameter");
-        }else return (int) (a-b);
+        }
+        return (int) c;
     }
 }
